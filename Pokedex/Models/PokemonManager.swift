@@ -11,11 +11,18 @@ import UIKit
 
 class PokemonManager {
     
+    var currLayout: layoutStates
+    enum layoutStates {
+        case COLLECTION
+        case TABLE
+    }
+    
     static var shared = PokemonManager()
     fileprivate var pokedex: [Pokemon] = []
     
     private init() {
         pokedex = PokemonGenerator.getPokemonArray()
+        currLayout = layoutStates.COLLECTION
         // Load all pokemon
     }
     

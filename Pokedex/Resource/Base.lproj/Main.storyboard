@@ -16,14 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pnp-uf-3NC">
-                                <rect key="frame" x="70" y="375" width="274" height="146"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Pnp-uf-3NC" secondAttribute="height" multiplier="15:8" id="gGs-Vq-YHU"/>
-                                </constraints>
-                            </imageView>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JK8-ut-HJ4">
-                                <rect key="frame" x="30" y="134" width="354" height="698"/>
+                                <rect key="frame" x="30" y="160" width="354" height="672"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="45" minimumInteritemSpacing="0.0" id="OEF-qp-KVy">
                                     <size key="itemSize" width="150" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -92,16 +86,54 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="5ei-rr-9k1"/>
                                 </connections>
                             </collectionView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headImage" translatesAutoresizingMaskIntoConstraints="NO" id="RQ8-6k-Kf8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="amm-mR-mAI"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-VO-cQI">
+                                <rect key="frame" x="329" y="120" width="65" height="28.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="68S-0S-Wg8"/>
+                                    <constraint firstAttribute="width" secondItem="rVf-VO-cQI" secondAttribute="height" multiplier="147:64" id="XSp-C2-a0F"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="LayoutToggle"/>
+                                <connections>
+                                    <action selector="layoutToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xcC-wA-auI"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="POKEDEX" translatesAutoresizingMaskIntoConstraints="NO" id="ITK-sk-k8o">
+                                <rect key="frame" x="117" y="30" width="180" height="49.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="dPy-Fz-Rhw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pnp-uf-3NC">
+                                <rect key="frame" x="70" y="375" width="274" height="146"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pnp-uf-3NC" secondAttribute="height" multiplier="15:8" id="gGs-Vq-YHU"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="RQ8-6k-Kf8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8rg-bk-xi4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pnp-uf-3NC" secondAttribute="trailing" constant="70" id="973-kX-VoA"/>
+                            <constraint firstItem="rVf-VO-cQI" firstAttribute="top" secondItem="RQ8-6k-Kf8" secondAttribute="bottom" constant="-10" id="E0k-kO-AzF"/>
+                            <constraint firstItem="RQ8-6k-Kf8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MAB-tG-rej"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JK8-ut-HJ4" secondAttribute="trailing" constant="30" id="OKX-Ub-UNj"/>
                             <constraint firstItem="Pnp-uf-3NC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ove-Ma-4XB"/>
                             <constraint firstItem="Pnp-uf-3NC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="RPu-QZ-bC2"/>
                             <constraint firstItem="JK8-ut-HJ4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="WYp-en-vup"/>
-                            <constraint firstItem="JK8-ut-HJ4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="cHa-oA-rUU"/>
+                            <constraint firstItem="ITK-sk-k8o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-14" id="blr-yt-dQs"/>
+                            <constraint firstItem="JK8-ut-HJ4" firstAttribute="top" secondItem="RQ8-6k-Kf8" secondAttribute="bottom" constant="30" id="cHa-oA-rUU"/>
+                            <constraint firstItem="ITK-sk-k8o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eoh-Iu-1ra"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JK8-ut-HJ4" secondAttribute="bottom" constant="30" id="fsj-K3-7cd"/>
+                            <constraint firstItem="RQ8-6k-Kf8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h0I-CR-k5H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rVf-VO-cQI" secondAttribute="trailing" constant="20" id="h7G-lD-9dL"/>
+                            <constraint firstAttribute="trailing" secondItem="RQ8-6k-Kf8" secondAttribute="trailing" id="lzL-YH-J7A"/>
+                            <constraint firstItem="RQ8-6k-Kf8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ojT-zc-89Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -116,6 +148,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LayoutToggle" width="147" height="64"/>
+        <image name="POKEDEX" width="423.5" height="49.5"/>
+        <image name="headImage" width="1125" height="338"/>
         <image name="logo" width="1068" height="517"/>
     </resources>
 </document>

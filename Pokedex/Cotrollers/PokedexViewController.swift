@@ -14,6 +14,11 @@ class PokedexViewController: UIViewController {
     @IBOutlet weak var welcomeImageView: UIImageView!
     @IBOutlet weak var pokemonCollectionView: UICollectionView!
     
+    enum layoutStates {
+        case COLLECTION
+        case TABLE
+    }
+    
     fileprivate let blurEffectView = UIVisualEffectView(effect: nil)
     
     override func viewDidLoad() {
@@ -32,7 +37,7 @@ class PokedexViewController: UIViewController {
         pokemonCollectionView.backgroundColor = bgcolor
         
         
-        view.insertSubview(blurEffectView, at: 1)
+        view.insertSubview(blurEffectView, at: 4)
         blurEffectView.effect = UIBlurEffect(style: .light)
         
         blurEffectView.frame = view.bounds
@@ -49,12 +54,34 @@ class PokedexViewController: UIViewController {
             self.blurEffectView.effect = enabled ? UIBlurEffect(style: .light) : nil
         }
     }
-
+    
+    func transToTableView() {
+        PokemonManager.shared.currLayout = PokemonManager.layoutStates.TABLE
+        self.pokemonCollectionView.reloadData()
+    }
+    
+    func transToCollectionView() {
+        PokemonManager.shared.currLayout = PokemonManager.layoutStates.COLLECTION
+        self.pokemonCollectionView.reloadData()
+        
+    }
+    
+    @IBAction func layoutToggle(_ sender: Any) {
+        if PokemonManager.shared.currLayout == PokemonManager.layoutStates.COLLECTION {
+            transToTableView()
+        } else {
+            transToCollectionView()
+        }
+    }
 }
 
 extension PokedexViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width / 2.6, height: collectionView.frame.height / 4)
+        if PokemonManager.shared.currLayout == PokemonManager.layoutStates.COLLECTION {
+            return CGSize(width: collectionView.frame.width / 2.6, height: collectionView.frame.height / 4)
+        } else {
+            return CGSize(width: collectionView.frame.width / 1.1, height: collectionView.frame.height / 4)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
