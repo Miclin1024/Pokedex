@@ -74,6 +74,7 @@ extension PokedexViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let entry = collectionView.dequeueReusableCell(withReuseIdentifier: "entry", for: indexPath) as! PokemonCollectionViewCell
         
         entry.layer.cornerRadius = 15
@@ -86,11 +87,12 @@ extension PokedexViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         entry.backgroundColor = .white
         
-        let entryPokemon: Pokemon = PokemonManager.shared.getPokemon(at: indexPath.item)
-        let url = URL(string: entryPokemon.imageUrl)
+        let entryPokemon: Pokemon = PokemonManager.shared.getPokemon(at: indexPath.row)
+        let url = URL(string: entryPokemon.imageUrlLarge)
+        //print(entryPokemon.imageUrlLarge)
         entry.pokemonImage.kf.setImage(with: url)
         entry.pokemonName.text = entryPokemon.name
-        entry.pokemonID.text = String(entryPokemon.id)
+        entry.pokemonID.text = "#" + String(entryPokemon.id)
         
         
         return entry

@@ -52,6 +52,7 @@ class Pokemon: Decodable {
     let total: Int
     let types: [PokeType]
     let imageUrl: String
+    let imageUrlLarge: String
     
     enum CodingKeys: String, CodingKey {
         case id = "national_number"
@@ -65,6 +66,7 @@ class Pokemon: Decodable {
     
     enum ImageKeys: String, CodingKey {
         case normal
+        case large
     }
     
     enum EvolutionKeys: String, CodingKey {
@@ -102,5 +104,6 @@ class Pokemon: Decodable {
         let imageContainer = try valueContainer.nestedContainer(keyedBy: ImageKeys.self, forKey: .images)
         
         self.imageUrl = try imageContainer.decode(String.self, forKey: .normal)
+        self.imageUrlLarge = try imageContainer.decode(String.self, forKey: .large)
     }
 }
