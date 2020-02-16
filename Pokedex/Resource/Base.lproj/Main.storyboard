@@ -342,7 +342,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZdL-8W-GG4" firstAttribute="top" secondItem="gZg-cl-zs4" secondAttribute="bottom" constant="60" id="4B9-c2-3QP"/>
                             <constraint firstItem="ANp-1V-4bf" firstAttribute="top" secondItem="ZdL-8W-GG4" secondAttribute="bottom" constant="13" id="8zy-C6-ttC"/>
@@ -364,9 +364,16 @@
                         <viewLayoutGuide key="safeArea" id="TUP-FM-M37"/>
                     </view>
                     <connections>
+                        <outlet property="atkLabel" destination="XKe-ME-hy1" id="2fx-hY-ect"/>
+                        <outlet property="defLabel" destination="DYl-Ee-RVZ" id="BvU-dh-zks"/>
+                        <outlet property="hpLabel" destination="UYi-Z9-asc" id="ekS-At-nmk"/>
                         <outlet property="pokemonID" destination="Iv3-Qo-U51" id="ZF5-wG-kOw"/>
                         <outlet property="pokemonImage" destination="ZdL-8W-GG4" id="Ee2-kE-iS1"/>
                         <outlet property="pokemonName" destination="8o0-Ip-QG5" id="lHE-k0-zE6"/>
+                        <outlet property="spAtkLabel" destination="XKe-ME-hy1" id="WUb-mY-cY2"/>
+                        <outlet property="spDefLabel" destination="LoP-rc-Myh" id="lbZ-OT-amU"/>
+                        <outlet property="speedLabel" destination="23g-Ev-QDH" id="Lna-Je-fgq"/>
+                        <outlet property="totalLabel" destination="msP-2j-cLO" id="257-mF-h5z"/>
                         <outlet property="typeImageStackView" destination="ANp-1V-4bf" id="F4p-x4-AP9"/>
                     </connections>
                 </viewController>
