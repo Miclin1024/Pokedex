@@ -32,7 +32,7 @@ extension UIImageView {
 
 extension PokedexViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        PokemonManager.shared.searchNames(for: searchText)
+        SearchParser.search(searchText)
         self.pokemonCollectionView.reloadData()
     }
 }

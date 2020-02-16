@@ -36,7 +36,18 @@ enum PokeType:String {
     case Unknown
 }
 
+enum PokeStat:String {
+    case attack
+    case defense
+    case health
+    case specialAttack
+    case specialDefense
+    case speed
+    case total
+}
+
 class Pokemon: Decodable {
+    
     /* Note 2:
        The image for each Pokemon is not provided, but a URL is. You should look up how to get an image from it's URL.
     */
@@ -53,6 +64,7 @@ class Pokemon: Decodable {
     let types: [PokeType]
     let imageUrl: String
     let imageUrlLarge: String
+    let evolutionName: String
     
     enum CodingKeys: String, CodingKey {
         case id = "national_number"
@@ -73,6 +85,25 @@ class Pokemon: Decodable {
         case name
     }
     
+    func getStat(stat: PokeStat) -> Int {
+        switch stat {
+            case .attack:
+                return self.attack
+            case .defense:
+                return self.defense
+            case .health:
+                return self.health
+            case .specialAttack:
+                return self.specialAttack
+            case .specialDefense:
+                return self.specialDefense
+            case .speed:
+                return self.speed
+            case .total:
+                return self.total
+        }
+    }
+    
     required init(from decoder: Decoder) throws {
         let valueContainer = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -84,6 +115,8 @@ class Pokemon: Decodable {
         } else {
             self.name = name
         }
+        
+        self.evolutionName = "None"
         
         self.id = Int(try valueContainer.decode(String.self, forKey: .id)) ?? 0
         self.attack = try valueContainer.decode(Int.self, forKey: .attack)
@@ -105,5 +138,11 @@ class Pokemon: Decodable {
         
         self.imageUrl = try imageContainer.decode(String.self, forKey: .normal)
         self.imageUrlLarge = try imageContainer.decode(String.self, forKey: .large)
+    }
+}
+
+extension Pokemon: Equatable {
+    static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
+        return lhs.name == rhs.name && lhs.evolutionName == rhs.evolutionName
     }
 }
