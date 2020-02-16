@@ -19,9 +19,11 @@ class PokemonManager {
     
     static var shared = PokemonManager()
     fileprivate var pokedex: [Pokemon] = []
+    fileprivate var pokedexOrigin: [Pokemon] = []
     
     private init() {
-        pokedex = PokemonGenerator.getPokemonArray()
+        pokedexOrigin = PokemonGenerator.getPokemonArray()
+        pokedex = pokedexOrigin
         currLayout = layoutStates.COLLECTION
         // Load all pokemon
     }
@@ -32,5 +34,12 @@ class PokemonManager {
     
     func getPokedexCount() -> Int {
         return pokedex.count
+    }
+    
+    func searchNames(for searchString: String) {
+        pokedex = pokedexOrigin
+        pokedex = pokedex.filter({pokemon in
+            return pokemon.name.contains(searchString)
+        })
     }
 }
