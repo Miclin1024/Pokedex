@@ -13,11 +13,29 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var pokemonID: UILabel!
     @IBOutlet weak var pokemonImage: UIImageView!
+    @IBOutlet weak var typeImageStackView: UIStackView!
+    
+    var showPokemon: Pokemon?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let target = showPokemon {
+            self.pokemonName.text = target.name
+            self.pokemonID.text = "#" + String(target.id)
+            self.pokemonImage.kf.setImage(with: URL(string: target.imageUrlLarge))
+            
+            typeImageStackView.distribution = .fillEqually
+            for index in 0 ..< target.types.count {
+                let typeImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+                typeImage.image = UIImage(named: target.types[index].rawValue)
+                typeImage.contentMode = .scaleAspectFit
+                typeImageStackView.addArrangedSubview(typeImage)
+            }
+            
+            
+    
+        }
     }
     
 

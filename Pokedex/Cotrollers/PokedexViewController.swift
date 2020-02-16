@@ -67,6 +67,14 @@ class PokedexViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC = segue.destination as? DetailViewController, segue.identifier == "toDetailVC" {
+            if let target = sender as? Pokemon {
+                destVC.showPokemon = target
+            }
+        }
+    }
+    
     @IBAction func layoutToggle(_ sender: Any) {
         if PokemonManager.shared.currLayout == PokemonManager.layoutStates.COLLECTION {
             transToTableView()

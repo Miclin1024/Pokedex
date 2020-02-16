@@ -77,8 +77,8 @@ extension PokedexViewController: UICollectionViewDelegate, UICollectionViewDataS
         entry.backgroundColor = .white
         
         let entryPokemon: Pokemon = PokemonManager.shared.getPokemon(at: indexPath.row)
+        entry.pokemon = entryPokemon
         let url = URL(string: entryPokemon.imageUrlLarge)
-        //print(entryPokemon.imageUrlLarge)
         entry.pokemonImage.kf.setImage(with: url)
         entry.pokemonName.text = entryPokemon.name
         entry.pokemonID.text = "#" + String(entryPokemon.id)
@@ -87,6 +87,6 @@ extension PokedexViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        performSegue(withIdentifier: "toDetailVC", sender: PokemonManager.shared.getPokemon(at: indexPath.row))
     }
 }
