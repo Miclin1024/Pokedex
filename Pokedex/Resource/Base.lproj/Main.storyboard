@@ -186,10 +186,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-Y5-nwv" userLabel="Filter Content Area">
+                            <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-Y5-nwv" userLabel="Filter Content Area">
                                 <rect key="frame" x="157" y="176.5" width="100" height="35"/>
                                 <subviews>
-                                    <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jn9-v6-xxo">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jn9-v6-xxo">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="35"/>
                                         <color key="tintColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>

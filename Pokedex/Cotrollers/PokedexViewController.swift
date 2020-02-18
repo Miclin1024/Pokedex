@@ -101,14 +101,14 @@ class PokedexViewController: UIViewController {
                 this.isSelected = true
             }, completion: { _ in
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.pokeTypeTextField.alpha = 1
+                    self.filterContentStack.alpha = 1
                     //self.pokeTypeTextField.becomeFirstResponder()
                 })
             })
         } else {
             UIView.animate(withDuration: 0.3, animations: {
                 this.isSelected = false
-                self.pokeTypeTextField.alpha = 0
+                self.filterContentStack.alpha = 0
             })
         }
     }
@@ -177,6 +177,10 @@ class PokedexViewController: UIViewController {
     }
     
     @IBAction func toggleFilter(_ sender: Any) {
+        if filterToggle {
+            toggleTypeFilterDisplay(to: false)
+            toggleStatFilterDisplay(to: false)
+        }
         UIView.animate(withDuration: 0.5, animations: {
             let button = sender as! UIButton
             if self.filterToggle {
