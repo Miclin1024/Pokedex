@@ -33,7 +33,6 @@ class PokemonManager {
     
     func setPokedex(arr: [Pokemon]) {
         pokedex = arr
-        
     }
     
     func getPokedexCount() -> Int {

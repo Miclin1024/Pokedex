@@ -14,7 +14,7 @@ import Foundation
         Poison, Fighting, Psychic, Fire, Rock, Flying, Steel, Ghost, Water
 */
 
-enum PokeType:String {
+public enum PokeType:String, Equatable, CaseIterable {
     case Bug
     case Grass
     case Dark
@@ -34,6 +34,10 @@ enum PokeType:String {
     case Ghost
     case Water
     case Unknown
+}
+
+public func ==(lhs: PokeType, rhs: String) -> Bool {
+    return lhs.rawValue.lowercased() == rhs.lowercased()
 }
 
 enum PokeStat:String {

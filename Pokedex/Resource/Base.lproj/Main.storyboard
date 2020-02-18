@@ -92,7 +92,7 @@
                                     <constraint firstAttribute="height" constant="150" id="amm-mR-mAI"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-VO-cQI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-VO-cQI" userLabel="Layout">
                                 <rect key="frame" x="329" y="140" width="65" height="28.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="68S-0S-Wg8"/>
@@ -120,25 +120,110 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="9WH-PI-eoe"/>
                                 </constraints>
+                                <color key="tintColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="qjF-Zn-zA6"/>
                                 </connections>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2Z-gq-KFv" userLabel="Filter">
+                                <rect key="frame" x="369" y="85.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="I2Z-gq-KFv" secondAttribute="height" multiplier="1:1" id="KfY-39-fOS"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Plus"/>
+                                <connections>
+                                    <action selector="toggleFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C4T-VW-RTM"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" alpha="0.0" contentMode="center" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bXI-ZW-9NT" userLabel="Filter Type Selection">
+                                <rect key="frame" x="102" y="125.5" width="210" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhj-0X-6VD">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="Ue1-MV-NcA"/>
+                                            <constraint firstAttribute="width" constant="80" id="XAi-BT-n8Z"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="type">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="20" name="GillSans-SemiBold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="typeSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BdL-tp-hQg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y5g-MY-dna">
+                                        <rect key="frame" x="130" y="0.0" width="80" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="jOS-d0-qht"/>
+                                            <constraint firstAttribute="height" constant="36" id="mqz-Ts-as0"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="stat">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="20" name="GillSans-SemiBold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="statSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9d3-JN-QIE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NbB-Y5-nwv" userLabel="Filter Content Area">
+                                <rect key="frame" x="157" y="176.5" width="100" height="35"/>
+                                <subviews>
+                                    <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jn9-v6-xxo">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="35"/>
+                                        <color key="tintColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Lyx-p8-O4e"/>
+                                            <constraint firstAttribute="height" constant="35" id="oZ8-rG-dgP"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="onPokeTypeEditChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="YHf-hK-kfK"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="bXI-ZW-9NT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2gX-9P-Cz2"/>
+                            <constraint firstItem="NbB-Y5-nwv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3dP-hH-UJX"/>
                             <constraint firstItem="DyL-EZ-jBW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="3mm-Uv-wFO"/>
+                            <constraint firstItem="NbB-Y5-nwv" firstAttribute="top" secondItem="bXI-ZW-9NT" secondAttribute="bottom" constant="15" id="8hh-Dg-Ygp"/>
                             <constraint firstItem="RQ8-6k-Kf8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8rg-bk-xi4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pnp-uf-3NC" secondAttribute="trailing" constant="70" id="973-kX-VoA"/>
                             <constraint firstItem="DyL-EZ-jBW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-50" id="DU9-JV-NFz"/>
                             <constraint firstItem="rVf-VO-cQI" firstAttribute="top" secondItem="RQ8-6k-Kf8" secondAttribute="bottom" constant="-10" id="E0k-kO-AzF"/>
                             <constraint firstItem="RQ8-6k-Kf8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MAB-tG-rej"/>
+                            <constraint firstItem="bXI-ZW-9NT" firstAttribute="top" secondItem="DyL-EZ-jBW" secondAttribute="bottom" constant="10" id="MNl-ub-oAN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JK8-ut-HJ4" secondAttribute="trailing" constant="30" id="OKX-Ub-UNj"/>
                             <constraint firstItem="Pnp-uf-3NC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ove-Ma-4XB"/>
                             <constraint firstItem="Pnp-uf-3NC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="RPu-QZ-bC2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I2Z-gq-KFv" secondAttribute="trailing" constant="20" id="TIW-XN-6xA"/>
                             <constraint firstItem="JK8-ut-HJ4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="WYp-en-vup"/>
+                            <constraint firstItem="DyL-EZ-jBW" firstAttribute="bottom" secondItem="I2Z-gq-KFv" secondAttribute="bottom" constant="5" id="aol-Vm-kQz"/>
                             <constraint firstItem="ITK-sk-k8o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-13" id="blr-yt-dQs"/>
                             <constraint firstItem="JK8-ut-HJ4" firstAttribute="top" secondItem="RQ8-6k-Kf8" secondAttribute="bottom" constant="30" id="cHa-oA-rUU"/>
                             <constraint firstItem="ITK-sk-k8o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eoh-Iu-1ra"/>
@@ -146,6 +231,7 @@
                             <constraint firstItem="RQ8-6k-Kf8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="h0I-CR-k5H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rVf-VO-cQI" secondAttribute="trailing" constant="20" id="h7G-lD-9dL"/>
                             <constraint firstItem="DyL-EZ-jBW" firstAttribute="top" secondItem="ITK-sk-k8o" secondAttribute="bottom" id="j4a-bg-yb5"/>
+                            <constraint firstItem="I2Z-gq-KFv" firstAttribute="top" secondItem="ITK-sk-k8o" secondAttribute="bottom" constant="5" id="kh8-zv-0Au"/>
                             <constraint firstAttribute="trailing" secondItem="RQ8-6k-Kf8" secondAttribute="trailing" id="lzL-YH-J7A"/>
                             <constraint firstItem="RQ8-6k-Kf8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ojT-zc-89Z"/>
                             <constraint firstItem="DyL-EZ-jBW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pV4-Od-nj2"/>
@@ -153,9 +239,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="filterContentStack" destination="NbB-Y5-nwv" id="hl5-Ke-YBZ"/>
+                        <outlet property="filterSelectionStack" destination="bXI-ZW-9NT" id="YqL-cS-fqB"/>
+                        <outlet property="headImageHeight" destination="amm-mR-mAI" id="MnE-g9-aBG"/>
+                        <outlet property="pokeTypeTextField" destination="Jn9-v6-xxo" id="aIM-rd-pb8"/>
                         <outlet property="pokedexSearchBar" destination="DyL-EZ-jBW" id="oPl-6i-14V"/>
                         <outlet property="pokemonCollectionView" destination="JK8-ut-HJ4" id="9b1-bB-oZI"/>
                         <outlet property="welcomeImageView" destination="Pnp-uf-3NC" id="247-MF-vK2"/>
+                        <outletCollection property="filterSelectionButton" destination="zhj-0X-6VD" collectionClass="NSMutableArray" id="Kob-gG-Juo"/>
+                        <outletCollection property="filterSelectionButton" destination="Y5g-MY-dna" collectionClass="NSMutableArray" id="seq-zg-sc3"/>
                         <segue destination="KCx-TZ-Qmn" kind="showDetail" identifier="toDetailVC" id="Jtr-4a-ec3"/>
                     </connections>
                 </viewController>
@@ -385,6 +477,7 @@
     <resources>
         <image name="LayoutToggle" width="147" height="64"/>
         <image name="POKEDEX" width="423.5" height="49.5"/>
+        <image name="Plus" width="74" height="74"/>
         <image name="headImage" width="1125" height="338"/>
         <image name="logo" width="1068" height="517"/>
     </resources>
