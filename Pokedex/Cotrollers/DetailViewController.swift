@@ -47,9 +47,6 @@ class DetailViewController: UIViewController {
                 typeImage.contentMode = .scaleAspectFit
                 typeImageStackView.addArrangedSubview(typeImage)
             }
-            
-            
-    
         }
     }
 }

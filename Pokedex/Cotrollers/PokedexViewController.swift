@@ -244,7 +244,6 @@ class PokedexViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     @IBAction func layoutToggle(_ sender: Any) {

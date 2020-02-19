@@ -22,7 +22,9 @@ class PokemonManager {
     var pokedexOrigin: [Pokemon] = []
     
     private init() {
-        pokedexOrigin = PokemonGenerator.getPokemonArray()
+        pokedexOrigin = PokemonGenerator.getPokemonArray().filter({ poke in
+            return !poke.name.contains("Mega") && !poke.name.contains("Alolan")
+        })
         pokedex = pokedexOrigin
         currLayout = layoutStates.COLLECTION
     }
