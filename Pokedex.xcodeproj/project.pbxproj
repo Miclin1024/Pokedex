@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A2FDF9D240E416900C41126 /* PokedexVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FDF9C240E416900C41126 /* PokedexVCDelegate.swift */; };
 		1A58501023F90D9B00B42B94 /* SearchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A58500F23F90D9B00B42B94 /* SearchHandler.swift */; };
 		1A7A392623F4B44E00F9F214 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7A392523F4B44E00F9F214 /* AppDelegate.swift */; };
 		1A7A392823F4B44E00F9F214 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7A392723F4B44E00F9F214 /* SceneDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A2FDF9C240E416900C41126 /* PokedexVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexVCDelegate.swift; sourceTree = "<group>"; };
 		1A58500F23F90D9B00B42B94 /* SearchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHandler.swift; sourceTree = "<group>"; };
 		1A7A392223F4B44E00F9F214 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A7A392523F4B44E00F9F214 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				1A7A395B23F501D800F9F214 /* PokemonCollectionViewCell.swift */,
+				1A2FDF9C240E416900C41126 /* PokedexVCDelegate.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				1AABEABE23F62E7300389036 /* PokemonManager.swift in Sources */,
 				1A7A392A23F4B44E00F9F214 /* PokedexViewController.swift in Sources */,
 				1ADF94C423F87ACE004D61C4 /* Extensions.swift in Sources */,
+				1A2FDF9D240E416900C41126 /* PokedexVCDelegate.swift in Sources */,
 				1A7A395823F4B63E00F9F214 /* PokemonGenerator.swift in Sources */,
 				1A7A392623F4B44E00F9F214 /* AppDelegate.swift in Sources */,
 				1A7A395C23F501D800F9F214 /* PokemonCollectionViewCell.swift in Sources */,
