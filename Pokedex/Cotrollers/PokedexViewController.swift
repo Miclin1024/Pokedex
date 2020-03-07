@@ -32,6 +32,9 @@ class PokedexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         let filterSelectColor = UIColor(white: 15.0 / 100, alpha: 1)
         
         for btn in filterSelectionButton {
@@ -67,6 +70,7 @@ class PokedexViewController: UIViewController {
         pokemonCollectionView.backgroundColor = bgcolor
         
         pokedexSearchBar.searchTextField.font = UIFont(name: "GillSans", size: 15)
+        pokedexSearchBar.searchTextField.textColor = .black
         
         blurEffectView.effect = UIBlurEffect(style: .light)
         blurEffectView.frame = view.bounds
@@ -154,6 +158,10 @@ class PokedexViewController: UIViewController {
             self.filterContentStack.addArrangedSubview(label)
             self.view.layoutIfNeeded()
         })
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @objc func cancelTypeFilter(_ sender: UIButton!) {
